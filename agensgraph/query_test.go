@@ -14,19 +14,19 @@ const (
 
 func TestMain(m *testing.M) {
 	log.Println("init")
-  setup()
-  retCode := m.Run()
-  teardown()
-  os.Exit(retCode)
+	setup()
+	retCode := m.Run()
+	teardown()
+	os.Exit(retCode)
 }
 
 func setup() {
 	c := agensgraph.Config{Host: "localhost", Port: "5432", User: "agraph", Password: "password", Database: "agraph"}
 	db, err := agensgraph.New(c)
 	fck(err)
-  _, err = db.Query(`CREATE (:person {city: 'test', name: 'John'})`);
+	_, err = db.Query(`CREATE (:person {city: 'test', name: 'John'})`);
 	fck(err)
-  _, err = db.Query(`CREATE (:person {city: 'test2', name: 'Patrick'})`);
+	_, err = db.Query(`CREATE (:person {city: 'test2', name: 'Patrick'})`);
 	fck(err)
 	_, err = db.Query(`CREATE (:person {name: 'John', city: 'test'})-[:knows]->(:person {name: 'Patrick', city: 'test2'});`)
 	fck(err)
@@ -36,7 +36,7 @@ func teardown() {
 	c := agensgraph.Config{Host: "localhost", Port: "5432", User: "agraph", Password: "password", Database: "agraph"}
 	db, err := agensgraph.New(c)
 	fck(err)
-  _, err = db.Query(`match (s:Person) DETACH DELETE (s) `);
+	_, err = db.Query(`match (s:Person) DETACH DELETE (s) `);
 }
 
 //from main.go root:

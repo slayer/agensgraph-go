@@ -9,11 +9,11 @@ import (
 )
 
 type Edge struct {
-    label string
-    eid GID
-		svid GID
-		evid GID
-    props interface{}
+  label string
+  eid GID
+	svid GID
+	evid GID
+  props interface{}
 }
 
 func ParseEdge(regexp *regexp.Regexp, value string) (*Edge, error) {

@@ -9,14 +9,14 @@ import (
 )
 
 type GID struct {
-    oid string
-    id string
+  oid string
+  id string
 }
 
 type Vertex struct {
-    label string
-    vid GID
-    props interface{}
+  label string
+  vid GID
+  props interface{}
 }
 
 func ParseVertex(regexp *regexp.Regexp, value string) (*Vertex, error) {
