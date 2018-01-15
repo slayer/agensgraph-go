@@ -5,7 +5,7 @@ import (
   "github.com/pkg/errors"
 
   "github.com/davecgh/go-spew/spew"
-  agensgraph "./agensgraph"
+  "github.com/ps23/agensgraph-go/agensgraph"
 )
 
 const MAIN_QUERY = `match (s:Person {name: 'John'})-[p:knows]->(o:Person) return s as s, p as p, o as o`
